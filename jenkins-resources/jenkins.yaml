@@ -41,3 +41,32 @@ jenkins:
             securityGroups: ${AGENT_SECURITY_GROUP_ID}
             subnets: ${SUBNET_IDS}
             templateName: jenkins-agent
+            
+tool:
+  git:
+    installations:
+      - name: Default
+        home: "git"
+  jdk:
+    installations:
+      - name: "open-jdk8"
+        properties:
+          - installSource:
+              installers:
+                - adoptOpenJdkInstaller:
+                    id: "jdk8u232-b09"
+      - name: "oracle-jdk8"
+        properties:
+          - installSource:
+              installers:
+                - jdkInstaller:
+                    acceptLicense: true
+                    id: "jdk-8u221-oth-JPR"
+  maven:
+    installations:
+      - name: "Maven 3"
+        properties:
+          - installSource:
+              installers:
+                - maven:
+                    id: "3.5.4"
